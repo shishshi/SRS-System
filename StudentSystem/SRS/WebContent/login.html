@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>选课系统登录</title>
+<style type="text/css">
+	  .center{
+                position: fixed;
+                top: 30%;
+                right:35%;
+                bottom:10%;
+                left:35%;
+                text-align: center;
+                border: 2px solid  #669999;
+            }
+            .centerContent{
+                position: absolute;
+                top: 10%;
+                bottom: 50%;
+                left:15%
+            }
+          
+</style>
+</head>
+<body>
+       <div class="center">
+       <span class="centerContent">   
+       <form id="loginform" class="form-vertical" method="post" action="login">
+       
+			 <h3>选课系统登录</h3>
+                
+             <p>用户名<input type="text" name="Ssn" placeholder="Ssn" /></p>
+                      
+             <p>密&nbsp;&nbsp;&nbsp;&nbsp;码<input type="password" name="Pwd" placeholder="Password" /></p>
+                     
+             <p> <select name="role" id="role"  style="width:85%;height:35px;">
+						  		<option value="0">请选择角色</option>
+								<option value="1">学生</option>
+								<option value="2">教师</option>
+								<option value="3">管理员</option>
+		         </select>    
+		     </p>    
+                     
+             <p>  <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Lost password?</a></span>
+                    <span class="pull-right"><input type="submit" class="btn btn-success" value=" Login"/></span> </p>
+                
+       </form>
+	   </span>
+       </div>
+</body>
+</html>

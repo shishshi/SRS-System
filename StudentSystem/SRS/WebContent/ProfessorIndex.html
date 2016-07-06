@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>教师管理</title>
+<link href="css/blue.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<style type="text/css">
+	html, body {
+		font-family: 'Lato', 微软雅黑;
+		font-size: 100%;
+		background: #fff;
+		padding:2em 5em;
+	}
+	td{
+		padding-bottom:10px;
+		text-align:left;
+	}
+	.form-control{
+		margin-top:0px;
+	}
+	.input-group{
+		width:100%;
+	}
+	.glyphicon{
+		top:0;
+	}
+	#professorList>tr>td{
+		vertical-align: middle;
+	}
+</style>
+</head>
+<body>
+	<h2>教师管理</h2>
+	<h5 class="text-danger">点击<mark class="text-muted"><u>教师姓名</u></mark>修改教师信息</h5>
+	<hr />
+	<div id="action">
+		<button id="checkAll" class="btn btn-default" onclick="checkAll();">
+			<span class="glyphicon glyphicon-check" aria-hidden="true"></span>全选
+		</button>
+		<button id="deleteProfessor" class="btn btn-default"
+			onclick="deleteProfessors();">
+			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除
+		</button>
+		<button class="btn btn-default" id="modal-858341" href='#modal-container-858341' role='button' data-toggle='modal'>
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+		</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-hover" align="center" id="professorList">
+			<tr>
+				<th>#</th>
+				<th>教师工号</th>
+				<th>教师姓名</th>
+				<th>头衔</th>
+				<th>所在学系</th>
+			</tr>
+		</table>
+	</div>
+	<div class="modal fade" id="modal-container-858341" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">
+						添加教师
+					</h4>
+				</div>
+				<form action="AddProfessor" method="post" id="addProfessor" name="addProfessor">
+					<div class="modal-body">
+						<h4 align="center">基本信息</h4>
+						<hr />
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-credit-card" ></span>
+							<input type="text" name="pssn" id="pssn" class="form-control" placeholder="Professor's Ssn, UNEDITABLE!" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-user" ></span>
+							<input type="text" name="professorName" id="professorName" class="form-control" placeholder="Professor's Name" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-education" ></span>
+							<input type="text" name="title" id="title" class="form-control" placeholder="Professor's Title" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-pawn" ></span>
+							<input type="text" name="department" id="department" class="form-control" placeholder="Professor's Department" />
+						</div>
+					</div>
+					<div class="modal-footer" id="submitItem">
+						<button type="submit" class="btn btn-primary">
+							提交
+						</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button> 
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/icheck.js"></script>
+<script src="js/common.js"></script>
+<script src="js/ProfessorIndex.js"></script>
+</html>

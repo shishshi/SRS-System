@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>课程管理</title>
+<link href="css/blue.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<style type="text/css">
+	html, body {
+		font-family: 'Lato', 微软雅黑;
+		font-size: 100%;
+		background: #fff;
+		padding: 2em 5em;
+	}
+	
+	td {
+		padding-bottom: 10px;
+		text-align: left;
+	}
+	
+	.form-control {
+		margin-top: 0px;
+	}
+	
+	.input-group {
+		width: 100%;
+	}
+	
+	#courseList>tr>td {
+		vertical-align: middle;
+	}
+	#sectionList,#studentList{
+		font-size:80%;
+	}
+	#sectionList>tr>td{
+		text-align:center;
+	}
+</style>
+</head>
+<body>
+	<h2>课程管理</h2>
+	<h5 class="text-danger">
+		点击
+		<mark class="text-muted">
+			<u>课程名称</u>
+		</mark>
+		修改课程信息
+	</h5>
+	<hr />
+	<div id="action">
+		<button id="checkAll" class="btn btn-default" onclick="checkAll();">
+			<span class="glyphicon glyphicon-check" aria-hidden="true"></span>全选
+		</button>
+		<button id="deleteCourse" class="btn btn-default"
+			onclick="deleteCourses();">
+			<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>删除
+		</button>
+		<button class="btn btn-default" id="modal-858341"
+			href='#modal-container-858341' role='button' data-toggle='modal'>
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+		</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-hover" align="center" id="courseList">
+			<tr>
+				<th>#</th>
+				<th>课程编码</th>
+				<th>课程名称</th>
+				<th>学分</th>
+				<th></th>
+			</tr>
+		</table>
+	</div>
+	<div class="modal fade" id="modal-container-858341" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">添加课程</h4>
+				</div>
+					<div class="modal-body">
+						<h4 align="center">基本信息</h4>
+						<hr />
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-credit-card"></span>
+							<input type="text" name="courseNo" id="courseNo"
+								class="form-control" placeholder="courseNo, UNEDITABLE!" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-user"></span>
+							<input type="text" name="courseName" id="courseName"
+								class="form-control" placeholder="courseName" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon glyphicon glyphicon-education"></span>
+							<input type="text" name="credits" id="credits"
+								class="form-control" placeholder="credits" />
+						</div>
+						<p>先修课程</p>
+						<select class="selector form-control" name="prerequisite" id="Prerequisites"></select>
+					</div>
+					<div class="modal-footer" id="submitItem">
+						<button type="button" class="btn btn-primary" onclick="addCourse();">提交</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modal-container-858342" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 60%;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title" id="myModalLabel">班次列表</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid" style="padding-left: 0;">
+						<div class="row-fluid">
+							<div class="col-xs-12 col-md-6 col-lg-6">
+								<h4 align="center" id="cName"></h4>
+								<hr />
+								<div class="table-responsive">
+									<table class="table table-hover" id="sectionList">
+										<tr>
+											<th>#</th>
+											<th>教师</th>
+											<th>上课日期</th>
+											<th>上课时间</th>
+											<th>教室</th>
+											<th>容量</th>
+											<th></th>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-6 col-lg-6">
+								<h4 align="center">Students Enrolled</h4>
+								<hr />
+								<div class="table-responsive">
+									<table class="table table-hover" id="studentList">
+										<tr>
+											<th>学号</th>
+											<th>姓名</th>
+											<th>专业</th>
+											<th>学位</th>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" id="submitItem">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/icheck.js"></script>
+<script src="js/common.js"></script>
+<script src="js/courseIndex.js"></script>
+</html>

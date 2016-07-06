@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改课程信息</title>
+
+<style type="text/css">
+	html, body {
+		font-family: 'Lato', 微软雅黑;
+		font-size: 100%;
+		background: #fff;
+		padding:2em 5em;
+	}
+	td{
+		padding-bottom:10px;
+		text-align:left;
+	}
+	
+	.glyphicon{
+		top:0;
+	}
+</style>
+</head>
+<body>
+
+			<h2 align="center">修改课程信息</h2>
+				<hr />
+				<form action="EditCourse" method="post" name="myForm">
+					<div align=center>
+						<p>
+						课程编码<input type="text" name="courseNo" id="courseNo"  /></p>
+					</div>
+					<div align=center>
+						<p>
+						课程名称<input type="text" name="courseName" id="courseName" /></p>
+					</div>
+					<div align=center>
+						<p>
+						学 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分<input type="text" name="credits" id="credits"  /></p>
+					</div>
+					
+					<div align=center>
+					<p>
+					先修课程<select class="selector form-control" name="prerequisite" id="Prerequisites"></select>
+					<div style="text-align:center;margin-top:10px;" id="submitItem">
+						<button class="btn btn-info" type="submit" onclick="alert('修改成功！即将返回课程列表页面。');">保存</button>
+						<button class="btn btn-default" type="button" onclick="getCourseInfo();">取消</button> </p>
+					</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-xs-12 col-md-2 col-lg-3"></div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/icheck.js"></script>
+<script type="text/javascript">
+	var url = location.href;
+	var es=/courseNo=/;
+	es.exec(url);
+	var courseNo=RegExp.rightContext;
+
+	$(document).ready(function(){
+		$.getJSON("GetAllCourses",function(json){
+			var str="";
+			for(var i=0;i<json.length;i++){
+				str+="<option value='"+json[i].courseNo+"'>"+json[i].courseName+"</option>"
+			}
+			$("#Prerequisites").append(str);
+			getCourseInfo();
+		});
+	});
+	
+	function getCourseInfo(){
+		$.getJSON("GetSingleCourse",{courseNo:courseNo},function(json){
+			$("#courseNo").val(json.courseNo);
+			$("#courseName").val(json.courseName);
+			$("#credits").val(json.credits);
+			$("#Prerequisites").find("option[value='"+json.preCourseNo+"']").attr("selected","selected");
+		});
+	}
+</script>
+</html>

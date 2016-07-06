@@ -1,0 +1,45 @@
+.form-control {
+	margin-top: 0px;
+}
+
+#warning {
+	padding: 5px 0;
+}
+
+h2, .input-group {
+	margin-bottom: 10px;
+}
+
+.input-group {
+	margin-bottom: 5px;
+}
+
+#action {
+	margin-bottom: 8px;
+}
+
+#action button, #removeProfessor {
+	width: 90px;
+	margin-right: 5px;
+}
+
+button span {
+	margin-right: 5px;
+}
+
+.close {
+	float: right;
+}
+
+h3 {
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+#guitarInfo>tbody>tr {
+	line-height: 3em;
+}
+
+#submitItem button {
+	width: 90px;
+}

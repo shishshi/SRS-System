@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学生选课</title>
+
+<style type="text/css">
+	html, body {
+		font-family: 'Lato', 微软雅黑;
+		font-size: 100%;
+		background: #fff;
+	}
+	body {
+		padding-top: 50px;
+	}
+	 .tb
+        {
+         border-width:2px;
+         border-collapse:collapse;
+         border-color:#669999;
+         border-style:solid;
+        }
+        td
+        {
+         border-width:2px;
+         border-collapse:collapse;
+         border-color:#669999;
+         border-style:solid;
+         text-align:center;
+        }
+	.form-control{
+		margin-top:0px;
+	}
+	.input-group{
+		width:100%;
+	}
+	.glyphicon{
+		top:0;
+		margin:0 5px;
+	}
+	#scheduleList,#registeredList{
+		font-size:80%;
+	}
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="col-xs-12 col-md-5 col-lg-5">
+				<h2>课程列表</h2>
+				<hr />
+				<form action="EnrollSectionServlet" method="post" name="form1" id="form1">
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered" id="scheduleList" width="600" height="400" border="2" cellpadding="0" cellspacing="0" class="tb"align="center">>
+							<tr>
+								<td>#</td>
+								<td>课程名称</td>
+								<td>教师</td>
+								<td>上课时间</td>
+								<td>上课地点</td>
+								<td>容量</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+			</div>
+			
+				<p align=center><button class="btn btn-primary btn-block" onclick="enroll();">添加<span class="glyphicon glyphicon-forward"></span></button>
+				<button class="btn btn-primary btn-block" onclick="drop();"><span class="glyphicon glyphicon-backward"></span>移除</button></p>
+			
+			<div class="col-xs-12 col-md-6 col-lg-6">
+				<h2>选中的课程</h2>
+				<hr />
+				<form action="DropSectionServlet" method="post" name="form2" id="form2">
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered" id="registeredList"  width="600" height="50" border="2" cellpadding="0" cellspacing="0" class="tb"align="center">>
+							<tr>
+								<td>#</td>
+								<td>课程名称</td>
+								<td>教师</td>
+								<td>上课时间</td>
+								<td>上课地点</td>
+								<td>容量</td>
+							</tr>
+						</table>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/icheck.js"></script>
+<script src="js/common.js"></script>
+<script src="js/SRS.js"></script>
+</html>

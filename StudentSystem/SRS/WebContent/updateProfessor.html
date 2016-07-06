@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>修改教师信息</title>
+<style type="text/css">
+	html, body {
+		font-family: 'Lato', 微软雅黑;
+		font-size: 100%;
+		background: #fff;
+		padding:2em 5em;
+	}
+	td{
+		padding-bottom:10px;
+		text-align:left;
+	}
+	
+	.glyphicon{
+		top:0;
+	}
+</style>
+</head>
+<body>
+	
+			<h2 align="center">修改教师信息</h2>
+				<hr />
+				<form action="EditProfessor" method="post" name="myForm">
+					<div align=center>
+						<p>
+						教师工号<input type="text" name="pssn" id="pssn"  /></p>
+					</div>
+					<div align=center>
+						<p>
+						教师姓名<input type="text" name="professorName" id="professorName"  /></p>
+					</div>
+					<div align=center>
+						<p>
+						教师头衔<input type="text" name="title" id="title" /></p>
+					</div>
+					<div align=center>
+						<p>
+						所在学系<input type="text" name="department" id="department"  /></p>
+					</div>
+					<div style="text-align:center;" id="submitItem">
+						<button class="btn btn-info" type="submit" onclick="alert('修改成功！即将返回教师列表页面。');">保存</button>
+						<button class="btn btn-default" type="button" onclick="getProfessorInfo();">取消</button>
+					</div>
+				</form>
+			
+			<div class="col-xs-12 col-md-2 col-lg-3"></div>
+		
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/icheck.js"></script>
+<script type="text/javascript">
+	var url = location.href;
+	var es=/Pssn=/;
+	es.exec(url);
+	var Pssn=RegExp.rightContext;
+
+	$(document).ready(function(){
+		getProfessorInfo();
+	});
+	
+	function getProfessorInfo(){
+		$.getJSON("GetSingleProfessor",{pssn:Pssn},function(json){
+			$("#pssn").val(json.Pssn);
+			$("#professorName").val(json.name);
+			$("#title").val(json.title);
+			$("#department").val(json.department);
+		});
+	}
+</script>
+</html>
